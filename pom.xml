@@ -8,7 +8,8 @@
   <name>yakitori</name>
   <url>http://maven.apache.org</url>
   <properties>
-    <kotlin.version>1.2.30</kotlin.version>
+    <kotlin.version>1.2.31</kotlin.version>
+    <main.class>MainKt</main.class>
   </properties>
   <dependencies>
     <dependency>
@@ -54,7 +55,7 @@
               <archive>
                 <manifest>
                   <addClasspath>true</addClasspath>
-                  <mainClass>MainKt</mainClass>
+                  <mainClass>${main.class}</mainClass>
                 </manifest>
               </archive>
             </configuration>
@@ -73,7 +74,7 @@
                 <configuration>
                   <archive>
                     <manifest>
-                      <mainClass>MainKt</mainClass>
+                      <mainClass>${main.class}</mainClass>
                     </manifest>
                   </archive>
                   <descriptorRefs>
