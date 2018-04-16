@@ -1,4 +1,5 @@
-com.natpryce.konfig.*
+import com.natpryce.konfig.*
+import java.io.File
 
 object server : PropertyGroup() {
     val port by intType
