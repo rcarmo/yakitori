@@ -1,3 +1,5 @@
+import io.carmo.yakitori.config.*
+
 fun main(args: Array<String>) {
-    println("Hello, world!")
+    println("Starting...")
 }
