@@ -1,5 +1,7 @@
+package io.carmo.yakitori.config
+
 import com.natpryce.konfig.*
-import java.io.File
+
 
 object server : PropertyGroup() {
     val port by intType
@@ -7,7 +9,6 @@ object server : PropertyGroup() {
 }
 
 // configuration object - 
-val config = systemProperties() overriding
+val config = ConfigurationProperties.systemProperties() overriding
              EnvironmentVariables() overriding
-             ConfigurationProperties.fromFile(File("/config/container.properties")) overriding
              ConfigurationProperties.fromResource("defaults.properties")
