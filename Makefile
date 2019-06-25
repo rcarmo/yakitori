@@ -10,6 +10,9 @@ deps-check-updates:
 build:
 	mvn compile
 
+tidy:
+	mvn tidy:pom
+
 serve:
 	java -jar target/yakitori-1.0-SNAPSHOT-jar-with-dependencies.jar
 
