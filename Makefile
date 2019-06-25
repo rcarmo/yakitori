@@ -11,11 +11,14 @@ build:
 	mvn compile
 
 tidy:
+	xmllint --format --recover -o pom.xml pom.xml
 	mvn tidy:pom
+
 
 serve:
 	java -jar target/yakitori-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 bootstrap-ubuntu:
 	sudo apt install \
-		maven 
+		maven \
+		libxml2-utils 
