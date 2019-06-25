@@ -1,31 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>io.carmo.yakitori</groupId>
   <artifactId>yakitori</artifactId>
-  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
   <name>yakitori</name>
   <url>http://maven.apache.org</url>
+
   <properties>
     <kotlin.version>1.3.40</kotlin.version>
     <main.class>MainKt</main.class>
     <ktor.version>1.2.2</ktor.version>
+    <serialization.version>0.11.1</serialization.version>
   </properties>
-  <repositories>
-    <repository>
-      <id>ktor</id>
-      <url>http://dl.bintray.com/kotlin/ktor</url>
-    </repository>
-    <repository>
-      <id>kotlinx</id>
-      <url>http://dl.bintray.com/kotlin/kotlinx</url>
-    </repository>
-    <repository>
-      <id>jcenter</id>
-      <url>http://jcenter.bintray.com</url>
-    </repository>
-  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -58,20 +49,39 @@
       <artifactId>commonmark</artifactId>
       <version>0.12.1</version>
     </dependency>
-  </dependencies>
+</dependencies>
+
+  <repositories>
+    <repository>
+      <id>ktor</id>
+      <url>http://dl.bintray.com/kotlin/ktor</url>
+    </repository>
+    <repository>
+      <id>kotlinx</id>
+      <url>http://dl.bintray.com/kotlin/kotlinx</url>
+    </repository>
+    <repository>
+      <id>jcenter</id>
+      <url>http://jcenter.bintray.com</url>
+    </repository>
+  </repositories>
+
   <build>
     <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
     <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
-      <plugins>
+    <plugins>
         <plugin>
-          <artifactId>kotlin-maven-plugin</artifactId>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <version>${kotlin.version}</version>
-            <configuration>
+           <groupId>org.jetbrains.kotlin</groupId>
+           <artifactId>kotlin-maven-plugin</artifactId>
+           <version>${kotlin.version}</version>
+           <configuration>
               <jvmTarget>1.8</jvmTarget>
               <args>
                 <arg>-Xcoroutines=enable</arg>
               </args>
+                <compilerPlugins>
+                    <plugin>kotlinx-serialization</plugin>
+                </compilerPlugins>
             </configuration>
             <executions>
               <execution>
@@ -87,6 +97,13 @@
                   </goals>
               </execution>
             </executions>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-maven-serialization</artifactId>
+                    <version>${kotlin.version}</version>
+                </dependency>
+            </dependencies>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
