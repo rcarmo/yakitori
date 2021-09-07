@@ -47,7 +47,7 @@
     <dependency>
       <groupId>com.charleskorn.kaml</groupId>
       <artifactId>kaml</artifactId>
-      <version>0.11.0</version>
+      <version>0.35.2</version>
     </dependency>
     <dependency>
       <groupId>com.atlassian.commonmark</groupId>
